@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <button onclick="
+      displayCartQuantity();
+    ">Show Quantity</button>
+
+
+  <button onclick="
+    updateCartquantity(1);
+  ">Add One</button>
+
+
+  <button onclick="
+    updateCartquantity(2);
+    ">2</button>
+
+
+  <button onclick="
+    updateCartquantity(3);
+  ">3</button>
+
+
+  <button onclick="
+    updateCartquantity(4);
+    ">4</button>
+
+
+  <button onclick="
+    updateCartquantity(5);
+    ">5</button>
+
+
+  <button onclick="
+    updateCartquantity(-2)
+    ">-2</button>
+
+
+  <button onclick="
+    updateCartquantity(-3);
+    ">-3</button>
+
+  <button onclick="
+    updateCartquantity(-1);
+    ">Remove</button>
+
+
+  <button onclick="
+      cartquantity = 0;
+      console.log('Cart was reset');
+      
+      displayCartQuantity();
+    ">Reset</button>
+
+    <p class="js-cartquantity"></p>
+
+  <script>
+
+    let cartquantity = 0;
+    
+    displayCartQuantity();
+
+    function updateCartquantity (change){
+      if(cartquantity + change > 10){
+        alert('The cart if full');
+        return;
+      }else if(cartquantity + change < 0){
+        alert('Not enogh item');
+        return;
+      }
+        cartquantity += change;
+        displayCartQuantity();
+      
+    }
+
+    function displayCartQuantity(){ document.querySelector('.js-cartquantity')
+      .innerHTML =`Cart quantity = ${cartquantity}`;
+  }
+  </script>
+</body>
+</html>
